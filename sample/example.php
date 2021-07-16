@@ -39,3 +39,9 @@ echo "The QR Code for this secret (to scan with the Google Authenticator App: \n
 
 echo \Sonata\GoogleAuthenticator\GoogleQrUrl::generate('chregu', $secret, 'GoogleAuthenticatorExample');
 echo "\n";
+
+include '../src/phpqrcode/qrlib.php';
+
+$image = QRcode::png($secret);
+
+echo "<img src="data:base64_encode($image)">'
